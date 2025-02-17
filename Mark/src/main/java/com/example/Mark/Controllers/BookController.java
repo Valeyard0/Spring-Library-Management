@@ -37,13 +37,8 @@ public class BookController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable Long id, @Valid @RequestBody Book book){
-        Book tempBook = iBookService.gatherBookFromId(id);
-        tempBook.setName(book.getName());
-        tempBook.setPage(book.getPage());
-        tempBook.setAuthor(book.getAuthor());
-        tempBook.setBookAvailable(book.isBookAvailable());
-        tempBook.setPerson(book.getPerson());
-        return new ResponseEntity<>(tempBook,HttpStatus.OK);
+       iBookService.updateBook(book,id);
+        return new ResponseEntity<>(book,HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

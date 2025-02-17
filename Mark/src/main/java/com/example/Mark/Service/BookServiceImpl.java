@@ -59,7 +59,15 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
-    public Book updateBook(Book book) {
-        return null;
+    public Book updateBook(Book book , Long id) {
+        Book tempBook = this.gatherBookFromId(id);
+        tempBook.setName(book.getName());
+        tempBook.setPage(book.getPage());
+        tempBook.setAuthor(book.getAuthor());
+        tempBook.setBookAvailable(book.isBookAvailable());
+        tempBook.setPerson(book.getPerson());
+        bookDAO.save(tempBook);
+        return tempBook;
     }
+
 }

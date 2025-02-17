@@ -9,5 +9,5 @@ public interface IBookService {
     Book gatherBookFromId(Long id);
     void saveBook(Book book);
     void deleteBook(Long id);
-    Book updateBook(Book book);
+    Book updateBook(Book book , Long id);
 }

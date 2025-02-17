@@ -17,6 +17,7 @@ public class Book {
     private Long id;
 
     @Size(min = 2 , message = "Name has to be  at least 2 character")
+    @NotNull
     private String name;
 
     @NotNull
@@ -26,7 +27,6 @@ public class Book {
 
     @OneToMany(mappedBy = "book", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonManagedReference
-    @NotNull
     private List<Author> author;
 
     @ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
