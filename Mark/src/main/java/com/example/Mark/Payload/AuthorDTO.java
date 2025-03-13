@@ -1,4 +1,4 @@
 package com.example.Mark.Payload;
 
-public class Author {
+public class AuthorDTO {
 }
